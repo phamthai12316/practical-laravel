@@ -25,3 +25,12 @@ $factory->define(User::class, function (Faker $faker) {
         'remember_token' => Str::random(10),
     ];
 });
+
+$factory->define(\App\Student::class, function (Faker $faker){
+    return[
+        'student_name' => $faker->unique()->name,    // domainName: nếu mà để domain name thì kho ít nên bị trùng
+        'student_age' => $faker-> paragraph,
+        'student_address' => $faker -> paragraph,
+        'student_telephone' => $faker -> phoneNumber
+    ];
+});
